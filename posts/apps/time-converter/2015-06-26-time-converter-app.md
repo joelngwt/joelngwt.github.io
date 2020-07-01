@@ -3,7 +3,7 @@ layout: post
 title: Time Converter App
 ---
 
-![alt text](/posts/apps/images/time-converter.png "Time Converter Interface")
+![alt text](/posts/apps/time-converter/1.png "Time Converter Interface")
 
 I’ve made an Android app! I’ve made games for Android before, but that was using Unity. This time, I’ve made an Android app natively from the ground up.
 

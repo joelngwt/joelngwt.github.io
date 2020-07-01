@@ -6,7 +6,7 @@ category: Apps
 
 Note: The year I made the app is shown.
 
-### (2015) [Time Converter]({{ site.baseurl }}{% link posts/apps/2015-06-26-time-converter-app.md %})
+### (2015) [Time Converter]({{ site.baseurl }}{% link posts/apps/time-converter/2015-06-26-time-converter-app.md %})
 
 This is a native Android app for converting the time between PST, PDT, EDT, EST, CET, CEST, and GMT+8.
 

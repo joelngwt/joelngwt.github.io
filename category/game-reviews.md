@@ -9,7 +9,7 @@ Most of these reviews were done when I was still in Secondary School (2007 and b
 *Note: The years indicate when I wrote the review; it has nothing to do with the game’s release date.*
 
 ### 2018
-- Mystic Messenger
+- [Mystic Messenger]({{ site.baseurl }}{% link posts/game-reviews/mystic-messenger/2018-07-30-mystic-messenger.md %})
 
 ### 2016
 - Wildstar
