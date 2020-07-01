@@ -13,6 +13,5 @@ Anyway, I’ve made a time converter app. Currently, it doesn’t have many time
 
 My motivation for making such an app is the fact that games have lots of patch and maintenance downtimes, and often the times for these are given in PDT or PST. For some odd reason I’m never able to remember the time difference between PST/PDT and GMT+8, and it’s a pain to use the time zone converter websites out there.
 
-Download the .apk file here: <https://www.dropbox.com/s/dsdsvomdstyj6du/Time%20Converter.apk?dl=0>
-
+Download the .apk file here: <https://www.dropbox.com/s/dsdsvomdstyj6du/Time%20Converter.apk?dl=0>\
 GitHub Repository here: <https://github.com/bloodelves88/Time-Converter>
