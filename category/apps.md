@@ -1,6 +1,7 @@
 ---
 layout: category
-title: Edge Case
+title: Apps I've Made
+category: Apps
 ---
 
 Sample category page. You need to create a page for each category.

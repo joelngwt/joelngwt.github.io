@@ -1,6 +1,7 @@
 ---
 layout: category
-title: Markup
+title: Game Reviews
+category: Game Reviews
 ---
 
 Another sample category page.
