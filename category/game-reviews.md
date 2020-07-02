@@ -16,20 +16,20 @@ Most of these reviews were done when I was still in Secondary School (2007 and b
 
 ### 2015
 - [Skyforge]({{ site.baseurl }}{% link posts/game-reviews/skyforge/2015-08-01-skyforge.md %})
-- Assassin’s Creed: Rogue
+- [Assassin’s Creed: Rogue]({{ site.baseurl }}{% link posts/game-reviews/assassins-creed-rogue/2015-03-19-assassins-creed-rogue.md %})
 
 ### 2013
-- Assassin’s Creed 4: Black Flag
+- [Assassin’s Creed 4: Black Flag]({{ site.baseurl }}{% link posts/game-reviews/assassins-creed-4-black-flag/2013-12-16-assassins-creed-4-black-flag.md %})
 
 ### 2012
-- Guild Wars 2
+- [Guild Wars 2]({{ site.baseurl }}{% link posts/game-reviews/guild-wars-2/2012-10-10-guild-wars-2.md %})
 
 ### 2010
-- Dragon Age: Origins
+- [Dragon Age: Origins]({{ site.baseurl }}{% link posts/game-reviews/dragon-age-origins/2010-01-11-dragon-age-origins.md %})
 
 ### 2008
-- Command & Conquer: Red Alert 3
-- Trackmania Nations
+- [Command & Conquer: Red Alert 3]({{ site.baseurl }}{% link posts/game-reviews/red-alert-3/2008-11-25-red-alert-3.md %})
+- [Trackmania Nations]({{ site.baseurl }}{% link posts/game-reviews/trackmania-nations/2008-02-23-trackmania-nations.md %})
 
 ### 2007
 - [World in Conflict]({{ site.baseurl }}{% link posts/game-reviews/world-in-conflict/2007-11-20-world-in-conflict.md %})
@@ -62,4 +62,4 @@ Most of these reviews were done when I was still in Secondary School (2007 and b
 - [Short reviews for 10 PSP games]({{ site.baseurl }}{% link posts/game-reviews/psp-game-reviews/2008-02-13-ten-psp-game-reviews.md %})
 
 ### Android Game Recommendations (2015)
-- Read the list here
+- [Read the list here]({{ site.baseurl }}{% link posts/game-reviews/android-game-reviews/2015-05-31-recommended-android-games.md %})
