@@ -38,4 +38,4 @@ sidebar_home_link:  true
                                 # to enable a separate blog link.
 
 # Uncomment to use this in GitHub pages
-# remote_theme: fongandrew/hydeout
+remote_theme: fongandrew/hydeout
