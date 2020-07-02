@@ -56,8 +56,8 @@ Granado Espada Trailer (1:49)
 {% include youtube-player.html id="QKIXeXN64HY" %}
 Granado Espada Features (3:40)
 
-Graphics: 8.6\
-Sound: 8.7\
-Gameplay: 8.5\
-Lasting appeal: 8.3\
+Graphics: 8.6<br />
+Sound: 8.7<br />
+Gameplay: 8.5<br />
+Lasting appeal: 8.3<br />
 Overall: 8.3

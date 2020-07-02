@@ -29,8 +29,8 @@ I vote this game: Best game no one heard of or played. Ever.
 {% include youtube-player.html id="hvRwvrsArsg" %}
 Trackmania Nations Trailer (1:38)
 
-Graphics: 9\
-Sound: 7\
-Gameplay: 8.8\
-Lasting Appeal: 9.3\
+Graphics: 9<br />
+Sound: 7<br />
+Gameplay: 8.8<br />
+Lasting Appeal: 9.3<br />
 Overall: 8.9

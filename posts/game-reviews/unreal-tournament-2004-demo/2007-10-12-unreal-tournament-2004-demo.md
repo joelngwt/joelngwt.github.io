@@ -25,8 +25,8 @@ Overall, its a perfect demo. Its so fun and good, I bet lots of people settled o
 {% include youtube-player.html id="NxLBsYNMRGk" %}
 Unreal Tournament 2004 Trailer (1:11)
 
-Graphics: 8\
-Sound: 7.7\
-Gameplay: 8.8\
-Lasting Appeal: 9\
+Graphics: 8<br />
+Sound: 7.7<br />
+Gameplay: 8.8<br />
+Lasting Appeal: 9<br />
 Overall: 8.5

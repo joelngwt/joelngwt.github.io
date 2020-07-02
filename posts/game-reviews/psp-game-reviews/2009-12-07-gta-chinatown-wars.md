@@ -30,8 +30,8 @@ Overall, this game has a solid storyline which flows out perfectly, giving you m
 {% include youtube-player.html id="trHWR1YHc_U" %}
 GTA: Chinatown Wars Trailer (1:09)
 
-Graphics: 9.0\
-Sound: 8.5\
-Gameplay: 9.0\
-Lasting appeal: 8.5 (I didn’t test out multiplayer)\
+Graphics: 9.0<br />
+Sound: 8.5<br />
+Gameplay: 9.0<br />
+Lasting appeal: 8.5 (I didn’t test out multiplayer)<br />
 Overall: 9.3

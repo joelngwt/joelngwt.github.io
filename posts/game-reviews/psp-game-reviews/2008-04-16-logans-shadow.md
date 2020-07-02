@@ -38,8 +38,8 @@ Syphon Filter: Logan’s Shadow Trailer (1:22)
 {% include youtube-player.html id="tKwp8Fp5zvg" %}
 Intro movie to first mission (3:18)
 
-Graphics: 9.5\
-Sound: 9\
-Gameplay: 9.5\
-Lasting Appeal: 8.8\
+Graphics: 9.5<br />
+Sound: 9<br />
+Gameplay: 9.5<br />
+Lasting Appeal: 8.8<br />
 Overall: 9.5

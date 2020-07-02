@@ -17,8 +17,8 @@ Therefore pretty obviously, GTA: San Andreas is still the best GTA Title so far,
 {% include youtube-player.html id="_oYgjrde9T4" %}
 Grand Theft Auto 3 Trailer (even the trailer quality is bad) (1:00)
 
-Graphics: 8\
-Sound: 7.5\
-Gameplay: 7\
-Lasting appeal: 6.8\
+Graphics: 8<br />
+Sound: 7.5<br />
+Gameplay: 7<br />
+Lasting appeal: 6.8<br />
 Overall: 7.3

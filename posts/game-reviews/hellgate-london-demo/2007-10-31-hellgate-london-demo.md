@@ -29,10 +29,10 @@ Overall, I really think people should stop rating the demo as an FPS shooter gam
 {% include youtube-player.html id="sQseJa9JJxk" %}
 Hellgate: London E3 2007 Trailer (3:18)
 
-Graphics: 8\
-Sound:6\
-Gameplay: 8.7\
-Lasting Appeal: 4 (its a demo)\
+Graphics: 8<br />
+Sound:6<br />
+Gameplay: 8.7<br />
+Lasting Appeal: 4 (its a demo)<br />
 Overall: 8.5
 
 Its hard to rate a MMORPG based on a demo. I mean, if I really rate it as a demo, it really deserves about a 7 or even 6.5 or so. But if I imagine what the full game will be like by playing the demo, the above score might be appropriate.

@@ -54,8 +54,8 @@ I know is my longest post ever, but who cares? The real reviews you find on the 
 {% include youtube-player.html id="iSETaKxupmg" %}
 Command & Conquer 3: Tiberium Wars Trailer (1:12)
 
-Graphics: 8\
-Sound: 8\
-Gameplay: 9\
-Lasting appeal: 8\
+Graphics: 8<br />
+Sound: 8<br />
+Gameplay: 9<br />
+Lasting appeal: 8<br />
 Overall: 8.8

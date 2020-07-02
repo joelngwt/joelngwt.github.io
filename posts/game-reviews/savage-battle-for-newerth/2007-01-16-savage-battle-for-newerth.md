@@ -22,8 +22,8 @@ This game used to be pay to play, but it has been released for free now. A new d
 {% include youtube-player.html id="zne__AUt4CE" %}
 Savage Trailer (1:48)
 
-Graphics: 7\
-Sound: 6\
-Gameplay: 8.5\
-Lasting appeal: 8\
+Graphics: 7<br />
+Sound: 6<br />
+Gameplay: 8.5<br />
+Lasting appeal: 8<br />
 Overall: 8

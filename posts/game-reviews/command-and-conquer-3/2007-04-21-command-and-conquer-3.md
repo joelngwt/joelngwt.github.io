@@ -44,8 +44,8 @@ C&C3 brings back the series to life, but if you are looking for something new, y
 {% include youtube-player.html id="iSETaKxupmg" %}
 Command & Conquer 3: Tiberium Wars Trailer (1:12)
 
-Graphics: 9\
-Sound: 9\
-Gameplay: 8.5\
-Lasting Appeal: 8.5\
+Graphics: 9<br />
+Sound: 9<br />
+Gameplay: 8.5<br />
+Lasting Appeal: 8.5<br />
 Overall: 8.7

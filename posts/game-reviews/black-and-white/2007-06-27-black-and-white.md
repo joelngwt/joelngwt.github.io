@@ -37,8 +37,8 @@ Overall, this game is rather well made and it brings the essence of being god to
 {% include youtube-player.html id="-itdfVUjwn4" %}
 Black and White E3 Trailer (3:06)
 
-Graphics: 7.2\
-Sound: 8.7\
-Gameplay: 9.3\
-Lasting appeal: 8.6\
+Graphics: 7.2<br />
+Sound: 8.7<br />
+Gameplay: 9.3<br />
+Lasting appeal: 8.6<br />
 Overall: 8.8
