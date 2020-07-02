@@ -53,6 +53,13 @@ body {
   padding: $section-spacing;
 }
 
+.content-resume {
+  background: $body-bg;
+  color: $body-color;
+  padding: $section-spacing;
+  font-size: 0.875rem;
+}
+
 // Container is flexbox as well -- we want content div to stretch and fill
 .container {
   display: flex;
