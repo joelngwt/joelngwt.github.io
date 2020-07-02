@@ -4,7 +4,6 @@ title: "Hitman: Blood Money"
 tags:
   - reviews
   - PC
-  - rts
 ---
 
 And so I have completed Hitman: Blood Money. The gameplay hasn’t changed much, Agent 47 still talks to the ICA through his tiny laptop to receive his missions. Agent 47 still remains a cold-blooded silent assassin, killing anyone who interferes with him or is involved with him. In one scene he kills a postman after he delivers a letter to him, face to face. In this instalment of Hitman, a new system, the notoriety system, is implemented. I never really got to experience the notoriety system, because I played the easiest level in the game, where that system is disabled. I usually go for the normal difficulty, but there were limited saves in the normal difficulty. 7 saves maximum. If there were unlimited saves, I would have played the normal level. The hardest difficulty is just crazy. No saves allowed at all. What on earth are they thinking? We have to play the whole game straight through?

@@ -25,6 +25,7 @@ If you haven’t played any of the Dawn of War games before, I suggest that you 
 
 ![alt text](/posts/game-reviews/wh40k-dow-dark-crusade/1.jpg "Game World")
 {% include youtube-player.html id="hyczjjm_qlQ" %}
+Dark Crusade Trailer (1:06)
 
 Graphics: 9.1\
 Sound: 9\
