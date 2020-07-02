@@ -47,13 +47,13 @@ Most of these reviews were done when I was still in Secondary School (2007 and b
 - Savage: The Battle for Newerth
 
 ### 2006
-- Hitman: Blood Money
-- Grand Theft Auto 3
-- Warhammer 40000: Dawn of War Dark Crusade
-- Battle for Middle-Earth 2
-- Rappelz
-- SupaSupa
-- Company of Heroes
+- [Hitman: Blood Money]({{ site.baseurl }}{% link posts/game-reviews/hitman-blood-money/2006-12-25-hitman-blood-money.md %})
+- [Grand Theft Auto 3]({{ site.baseurl }}{% link posts/game-reviews/grand-theft-auto-3/2006-11-30-grand-theft-auto-3.md %})
+- [Warhammer 40000: Dawn of War Dark Crusade]({{ site.baseurl }}{% link posts/game-reviews/wh40k-dow-dark-crusade/2006-11-26-wh40k-dow-dark-crusade.md %})
+- [Battle for Middle-Earth 2]({{ site.baseurl }}{% link posts/game-reviews/battle-for-middle-earth-2/2006-11-21-battle-for-middle-earth-2.md %})
+- [Rappelz]({{ site.baseurl }}{% link posts/game-reviews/rappelz/2006-11-09-rappelz.md %})
+- [SupaSupa]({{ site.baseurl }}{% link posts/game-reviews/supasupa/2006-11-14-supasupa.md %})
+- [Company of Heroes]({{ site.baseurl }}{% link posts/game-reviews/company-of-heroes/2006-11-01-company-of-heroes.md %})
 
 ### PSP Game Reviews (2008-2009)
 - [Grand Theft Auto: Chinatown Wars]({{ site.baseurl }}{% link posts/game-reviews/psp-game-reviews/2009-12-07-gta-chinatown-wars.md %})
