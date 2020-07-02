@@ -3,10 +3,10 @@ markdown:         kramdown
 highlighter:      rouge
 
 # Setup
-title:            Hydeout
-tagline:          'A Jekyll theme'
-description:      'The <a href="http://hyde.getpoole.com" target="_blank">Hyde</a> theme for <a href="http://jekyllrb.com" target="_blank">Jekyll</a>, refreshed.'
-url:              https://fongandrew.github.io
+title:            Ng Wee Thia Joel
+tagline:          'Personal Tech Blog'
+description:      'Personal Tech Blog'
+url:              https://joelngwt.github.io
 baseurl:          ''
                   # the optional subpath of your site, e.g. "/blog"
                   # NB: This applies to all pages in your Jekyll site.
@@ -22,6 +22,9 @@ paginate:         5
 # paginate_path:    '/page:num'
                     # Or '/blog/page:num' if you want to move your index pages
 
+disqus:
+  shortname: joelngwt
+
 plugins:
   - jekyll-feed
   - jekyll-gist
@@ -33,5 +36,6 @@ sidebar_home_link:  true
                                 # page. If you change your paginate_path,
                                 # set this to the root of the paginate_path
                                 # to enable a separate blog link.
-# To use Github pages
+
+# Uncomment to use this in GitHub pages
 remote_theme: fongandrew/hydeout
