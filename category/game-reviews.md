@@ -15,7 +15,7 @@ Most of these reviews were done when I was still in Secondary School (2007 and b
 - [Wildstar]({{ site.baseurl }}{% link posts/game-reviews/wildstar/2016-01-07-wildstar.md %})
 
 ### 2015
-- [Skyforge]({{ site.baseurl }}{% link posts/game-reviews/skyforge/2015-08-02-skyforge.md %})
+- [Skyforge]({{ site.baseurl }}{% link posts/game-reviews/skyforge/2015-08-01-skyforge.md %})
 - Assassin’s Creed: Rogue
 
 ### 2013
@@ -56,10 +56,10 @@ Most of these reviews were done when I was still in Secondary School (2007 and b
 - Company of Heroes
 
 ### PSP Game Reviews (2008-2009)
-- Grand Theft Auto: Chinatown Wars
-- Need For Speed: Undercover
-- [Syphon Filter: Logan’s Shadow]({{ site.baseurl }}{% link posts/game-reviews/psp-game-reviews/2014-03-19-logans-shadow.md %})
-- [Short reviews for 10 PSP games]({{ site.baseurl }}{% link posts/game-reviews/psp-game-reviews/2014-03-19-ten-psp-game-reviews.md %})
+- [Grand Theft Auto: Chinatown Wars]({{ site.baseurl }}{% link posts/game-reviews/psp-game-reviews/2009-12-07-gta-chinatown-wars.md %})
+- [Need For Speed: Undercover]({{ site.baseurl }}{% link posts/game-reviews/psp-game-reviews/2008-12-03-need-for-speed-undercover.md %})
+- [Syphon Filter: Logan’s Shadow]({{ site.baseurl }}{% link posts/game-reviews/psp-game-reviews/2008-04-16-logans-shadow.md %})
+- [Short reviews for 10 PSP games]({{ site.baseurl }}{% link posts/game-reviews/psp-game-reviews/2008-02-13-ten-psp-game-reviews.md %})
 
 ### Android Game Recommendations (2015)
 - Read the list here
