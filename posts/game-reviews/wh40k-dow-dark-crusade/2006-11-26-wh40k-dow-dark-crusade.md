@@ -27,8 +27,8 @@ If you haven’t played any of the Dawn of War games before, I suggest that you 
 {% include youtube-player.html id="hyczjjm_qlQ" %}
 Dark Crusade Trailer (1:06)
 
-Graphics: 9.1\
-Sound: 9\
-Gameplay: 8\
-Lasting appeal: 8\
+Graphics: 9.1<br />
+Sound: 9<br />
+Gameplay: 8<br />
+Lasting appeal: 8<br />
 Overall: 8.8

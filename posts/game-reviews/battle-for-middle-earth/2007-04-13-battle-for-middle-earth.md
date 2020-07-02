@@ -35,8 +35,8 @@ Battle for Middle-Earth Trailer 1 (1:33)
 {% include youtube-player.html id="3BFOsPfD0yk" %}
 Battle for Middle-Earth Trailer 2 (2:13)
 
-Graphics: 8.5\
-Sound: 8.5\
-Gameplay: 7.8\
-Lasting appeal: 7.5\
+Graphics: 8.5<br />
+Sound: 8.5<br />
+Gameplay: 7.8<br />
+Lasting appeal: 7.5<br />
 Overall: 8.5

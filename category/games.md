@@ -12,7 +12,7 @@ This is a game I made on my own by following a Construct 2 tutorial. It’s a si
 ### (2014) [Stoic Gasa](https://joelngwt.github.io/stoic-gasa/)
 The product of a school project, made using Unity 4. It’s a shooter on rails/arcade shooter, similar to games like Time Crisis and Virtua Cop.
 
-GitHub repository [here](https://github.com/joelngwt/stoic-gasa).\
+GitHub repository [here](https://github.com/joelngwt/stoic-gasa).<br />
 Game download for Windows [here](https://www.dropbox.com/s/tu1q0er1lla0s67/Stoic%20Gasa.zip?dl=0). (22mb download)
 
 ### (2014) Spirit Sight
@@ -24,11 +24,11 @@ My group’s main product of SUTD’s [Game Innovation Programme](http://gamelab
 ### (2014) [Stoic Gasa 2](https://joelngwt.github.io/stoic-gasa-cs4350/)
 The continuation of Stoic Gasa, also done as a school project. More weapons, a revamped level 1, and a boss level added.
 
-GitHub repository [here](https://github.com/joelngwt/stoic-gasa-cs4350).\
+GitHub repository [here](https://github.com/joelngwt/stoic-gasa-cs4350).<br />
 Game download for Windows [here](https://www.dropbox.com/s/4k8ahio56p4goq5/Stoic%20Gasa%202.zip?dl=0). (33mb download)
 
 ### (2015) [Floppy Bird](https://joelngwt.github.io/FloppyBird/)
 Just another Flappy Bird clone. I made this game not with the purpose of being creative, but to practice programming and trying the new Unity 5 engine.
 
-GitHub repository [here](https://github.com/joelngwt/FloppyBird).\
+GitHub repository [here](https://github.com/joelngwt/FloppyBird).<br />
 Game download for Windows [here](https://www.dropbox.com/s/xao962599nwxj34/Floppy%20Bird.zip?dl=0).

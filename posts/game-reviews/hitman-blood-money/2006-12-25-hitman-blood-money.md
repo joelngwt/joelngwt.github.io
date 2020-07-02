@@ -17,8 +17,8 @@ There’s even more proof that I need a new graphics card. Any setting above “
 {% include youtube-player.html id="Mz0RoacrLLg" %}
 Hitman: Blood Money Trailer (1:34)
 
-Graphics: 8\
-Sound: 8\
-Gameplay: 7\
-Lasting appeal: 8\
+Graphics: 8<br />
+Sound: 8<br />
+Gameplay: 7<br />
+Lasting appeal: 8<br />
 Overall: 8

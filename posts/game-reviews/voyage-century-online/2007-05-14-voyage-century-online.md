@@ -31,8 +31,8 @@ Overall, it’s a good game if you are looking into something different, but don
 {% include youtube-player.html id="vQHm_iYjlmU" %}
 Voyage Century Online Trailer (3:26)
 
-Graphics: 7.7\
-Sound: 6.9\
-Gameplay: 7.5\
-Lasting Appeal: 6.4\
+Graphics: 7.7<br />
+Sound: 6.9<br />
+Gameplay: 7.5<br />
+Lasting Appeal: 6.4<br />
 Overall: 7.6

@@ -5,7 +5,7 @@ sidebar_link: true
 ---
 
 ## Education
-**National University of Singapore (NUS)**\
+**National University of Singapore (NUS)**<br />
 *Aug 2012 – July 2016*
 - Bachelor of Computing (Computer Science), Honours
 - Specializations in:
@@ -13,14 +13,14 @@ sidebar_link: true
   - Software Engineering
   - Visual Computing
 
-**Anglo-Chinese Junior College**\
+**Anglo-Chinese Junior College**<br />
 *Jan 2008 – Dec 2009*
 - Graduated with three distinctions
 
 ---
 
 ## Work Experience
-**VersaFleet, Senior Software Engineer**\
+**VersaFleet, Senior Software Engineer**<br />
 *Jul 2018 – Present*
 
 - Optimized some heavy backend functions, reducing the time for an
@@ -46,7 +46,7 @@ well as reviewing their pull requests.
 - Managed the Quality Assurance team that was established in Dec 2019,
 resulting in the elimination of critical bugs.
 
-**VersaFleet, Software Engineer**\
+**VersaFleet, Software Engineer**<br />
 *Oct 2017 – Jul 2018*
 
 - Built over 10 new frontend features for the web application using
@@ -60,7 +60,7 @@ the customer’s and VersaFleet’s server.
 well as reviewing their pull requests.
 
 
-**National University of Singapore, Research Assistant**\
+**National University of Singapore, Research Assistant**<br />
 *Sep 2016 – Sep 2017*
 
 - Performed research on cloud gaming, allowing less resources (CPU, GPU,
@@ -73,7 +73,7 @@ DirectX to be video streamed over a network.
 - Built a thin client using Python, so that the player can receive the video
 stream of the game, as well as control the game remotely.
 
-**Ubisoft Singapore, Quality Assurance Assistant**\
+**Ubisoft Singapore, Quality Assurance Assistant**<br />
 *May 2016 – Sep 2016*
 
 - Performed daily smoke tests on the game, which consisted of
@@ -82,7 +82,7 @@ approximately 100 test cases.
 and designers to ensure that the bugs are identified and fixed.
 - Found and reported approximately 450 bugs in total.
 
-**Singapore University of Technology and Design (Game Innovation Programme), Quality Assurance Tester**\
+**Singapore University of Technology and Design (Game Innovation Programme), Quality Assurance Tester**<br />
 *May 2014 – Aug 2014*
 
 - Developed an iOS video game using Unity in a multidisciplinary team of
@@ -96,13 +96,13 @@ public and press as part of Industry Day 2014.
 ---
 
 ## Co-Curricular Activities
-**Member, NUS Game Development Group**\
+**Member, NUS Game Development Group**<br />
 *Aug 2013 – Dec 2013*
 
-**Member, Tech Council**\
+**Member, Tech Council**<br />
 *Jan 2008 – Dec 2009*
 
-**Assistant Leader, Uniform and Logistics Committee, Boys’ Brigade**\
+**Assistant Leader, Uniform and Logistics Committee, Boys’ Brigade**<br />
 *Jan 2004 – Dec 2007*
 - Attained the rank of staff sergeant.
 - Coordinated the uniform requirements of 300 men on a regular and

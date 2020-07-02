@@ -35,8 +35,8 @@ Fortunately, I have to say that the controls for the game are good. All the esse
 
 Overall, it is a fairly good game to have on the PSP. Solid (but boring) tracks for you to race on, cops, traffic, an AI that is a bit odd, that alone gives a PSP owner quite a lot for a game. It might get a little repetitive when you just go for race after race, but what racing game isn’t like that? If played till the end, it guarantees at least eight hours of gameplay. However, if you are looking for a racing game with a PC/360/PS3 standard, this game will not pack much punch.
 
-Graphics: 7.0\
-Sound: 6.6\
-Gameplay: 7.0\
-Lasting Appeal: 6.0\
+Graphics: 7.0<br />
+Sound: 6.6<br />
+Gameplay: 7.0<br />
+Lasting Appeal: 6.0<br />
 Overall: 7.0

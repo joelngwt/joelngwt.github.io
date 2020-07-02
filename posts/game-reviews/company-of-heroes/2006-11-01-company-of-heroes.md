@@ -32,8 +32,8 @@ Now that I’ve completed the game, I have to start playing skirmish battles and
 {% include youtube-player.html id="FKVm40zQgwA" %}
 Company of Heroes Trailer (1:25)
 
-Graphics: 9.5\
-Sound: 9.5\
-Gameplay: 9\
-Lasting appeal: 8\
+Graphics: 9.5<br />
+Sound: 9.5<br />
+Gameplay: 9<br />
+Lasting appeal: 8<br />
 Overall: 9.5

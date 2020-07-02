@@ -16,8 +16,8 @@ I believe the races are imbalanced too. I went through the good campaign in a br
 {% include youtube-player.html id="8ZYdn232WPY" %}
 Lord of the Rings: The Battle for Middle-Earth 2 Trailer (3:02)
 
-Graphics: 9.5\
-Sound: 9\
-Gameplay: 6\
-Lasting appeal: 7\
+Graphics: 9.5<br />
+Sound: 9<br />
+Gameplay: 6<br />
+Lasting appeal: 7<br />
 Overall: 6.9

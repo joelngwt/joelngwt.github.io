@@ -35,8 +35,8 @@ Overall, this game really brings you right into the heart of the game, and it wi
 {% include youtube-player.html id="bAIsO2t9SZ8" %}
 Call of Duty 2 Trailer (1:33)
 
-Graphics:8.6\
-Sound: 9.3\
-Gameplay: 9\
-Lasting Appeal: 9\
+Graphics:8.6<br />
+Sound: 9.3<br />
+Gameplay: 9<br />
+Lasting Appeal: 9<br />
 Overall: 9.6

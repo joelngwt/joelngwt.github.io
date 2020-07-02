@@ -34,8 +34,8 @@ World in Conflict Trailer (1:29)
 ![alt text](/posts/game-reviews/world-in-conflict/1.png "Campaign Medals")
 All the medals you get after fully completing the single player campaign.
 
-Graphics: 9.7\
-Sound: 9.5\
-Gameplay: 9.5\
-Lasting Appeal: 9\
+Graphics: 9.7<br />
+Sound: 9.5<br />
+Gameplay: 9.5<br />
+Lasting Appeal: 9<br />
 Overall: 9.8

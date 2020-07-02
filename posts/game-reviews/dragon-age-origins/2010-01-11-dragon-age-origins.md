@@ -26,8 +26,8 @@ The amount of lore in the game is vast and plentiful, as you will come across ma
 
 All in all, this is one game that no one shouldn’t be playing. Pick up your arms, join the Grey Wardens and let us begin this battle.
 
-Graphics: 8.5\
-Sound: 8\
-Gameplay: 9\
-Lasting appeal: 9.5\
+Graphics: 8.5<br />
+Sound: 8<br />
+Gameplay: 9<br />
+Lasting appeal: 9.5<br />
 Overall: 9.5
