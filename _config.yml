@@ -6,7 +6,7 @@ highlighter:      rouge
 title:            Ng Wee Thia Joel
 tagline:          'Personal Tech Blog'
 description:      'Personal Tech Blog'
-url:              https://bloodelves88.github.io
+url:              https://joelngwt.github.io
 baseurl:          ''
                   # the optional subpath of your site, e.g. "/blog"
                   # NB: This applies to all pages in your Jekyll site.
@@ -23,7 +23,7 @@ paginate:         5
                     # Or '/blog/page:num' if you want to move your index pages
 
 disqus:
-  shortname: bloodelves88
+  shortname: joelngwt
 
 plugins:
   - jekyll-feed
