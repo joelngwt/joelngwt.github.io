@@ -12,10 +12,10 @@ Most of these reviews were done when I was still in Secondary School (2007 and b
 - [Mystic Messenger]({{ site.baseurl }}{% link posts/game-reviews/mystic-messenger/2018-07-30-mystic-messenger.md %})
 
 ### 2016
-- Wildstar
+- [Wildstar]({{ site.baseurl }}{% link posts/game-reviews/wildstar/2016-01-07-wildstar.md %})
 
 ### 2015
-- Skyforge
+- [Skyforge]({{ site.baseurl }}{% link posts/game-reviews/skyforge/2015-08-02-skyforge.md %})
 - Assassin’s Creed: Rogue
 
 ### 2013
@@ -59,7 +59,7 @@ Most of these reviews were done when I was still in Secondary School (2007 and b
 - Grand Theft Auto: Chinatown Wars
 - Need For Speed: Undercover
 - Syphon Filter: Logan’s Shadow
-- Short reviews for 10 PSP games
+- [Short reviews for 10 PSP games]({{ site.baseurl }}{% link posts/game-reviews/psp-game-reviews/2014-03-19-ten-psp-game-reviews.md %})
 
 ### Android Game Recommendations (2015)
 - Read the list here

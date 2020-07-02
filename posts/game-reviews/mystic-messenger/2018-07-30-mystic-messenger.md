@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Mystic Messenger
+tags:
+  - reviews
+  - mobile
+  - otome
 ---
 
 *This review will contain no explicit spoilers about the storyline, but information about the game (e.g. type of & number of characters, personalities, core gameplay elements, story themes, etc.) will be present.*
