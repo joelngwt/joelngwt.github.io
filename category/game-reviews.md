@@ -58,7 +58,7 @@ Most of these reviews were done when I was still in Secondary School (2007 and b
 ### PSP Game Reviews (2008-2009)
 - Grand Theft Auto: Chinatown Wars
 - Need For Speed: Undercover
-- Syphon Filter: Logan’s Shadow
+- [Syphon Filter: Logan’s Shadow]({{ site.baseurl }}{% link posts/game-reviews/psp-game-reviews/2014-03-19-logans-shadow.md %})
 - [Short reviews for 10 PSP games]({{ site.baseurl }}{% link posts/game-reviews/psp-game-reviews/2014-03-19-ten-psp-game-reviews.md %})
 
 ### Android Game Recommendations (2015)
