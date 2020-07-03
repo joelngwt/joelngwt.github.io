@@ -1,6 +1,8 @@
 ---
 layout: post
 title: How To Upgrade PostgreSQL RDS Without Downtime (Almost)
+tags:
+  - aws
 ---
 
 ## The Story
@@ -27,7 +29,7 @@ What does this mean? It means we can set up a second database, upgrade it to the
 - Modify your database and apply this parameter group to it.
 - *You will need to restart your database for the changes to take effect. This is the one and only downtime. It should not take more than 3 minutes.*
 
-![Parameter Groups](/_posts/postgresql-multi-master-replication/1.png "Parameter Groups")
+![Parameter Groups](/images/postgresql-multi-master-replication/1.png "Parameter Groups")
 
 ### Create your database
 - Create a new database, with all the settings and PostgreSQL version that you want to eventually use.
@@ -39,7 +41,7 @@ What does this mean? It means we can set up a second database, upgrade it to the
 - Check “Select RDS DB instance”.
 - Select your source instance from the dropdown.
 
-![Endpoint](/_posts/postgresql-multi-master-replication/2.png "Endpoint")
+![Endpoint](/images/postgresql-multi-master-replication/2.png "Endpoint")
 
 - Continue filling up the rest of the information
   - Endpoint identifier - Anything you want, this is just for your own reference
@@ -49,7 +51,7 @@ What does this mean? It means we can set up a second database, upgrade it to the
 - Test the connection of the database.
   - If the access has failed, it is likely due to the security group of the source and target instance. Add the private IP address of the replication instance to the security group of your source and target instance.
 
-![Test connection](/_posts/postgresql-multi-master-replication/3.png "Test connection")
+![Test connection](/images/postgresql-multi-master-replication/3.png "Test connection")
 
 ### Create a replication instance
 - Replication instances webpage: <https://ap-southeast-1.console.aws.amazon.com/dms/v2/home?region=ap-southeast-1#replicationInstances>
@@ -68,16 +70,16 @@ What does this mean? It means we can set up a second database, upgrade it to the
 - Fill up the details. It should use everything you have created previously.
 - The “Migration type” should be “Migrate existing data and replicate ongoing changes”.
 
-![Task configuration](/_posts/postgresql-multi-master-replication/4.png "Task configuration")
+![Task configuration](/images/postgresql-multi-master-replication/4.png "Task configuration")
 
 - In “Task settings”, choose “Full LOB mode”
 
-![Task settings”](/_posts/postgresql-multi-master-replication/5.png "Task settings”")
+![Task settings”](/images/postgresql-multi-master-replication/5.png "Task settings”")
 
 - In “Table Mappings”, add one selection rule:
   - If your schema name happens to be different, just change it accordingly.
 
-![Table Mappings](/_posts/postgresql-multi-master-replication/6.png "Table Mappings")
+![Table Mappings](/images/postgresql-multi-master-replication/6.png "Table Mappings")
 
 - Save the task.
 
@@ -92,7 +94,7 @@ Nothing is ever that simple, and that applies to me as well. Here are several er
 ### Failures
 - In general, you can attempt to debug the replication by looking at the "Last failure message" section.
 
-![Last failure message](/_posts/postgresql-multi-master-replication/7.png "Last failure message")
+![Last failure message](/images/postgresql-multi-master-replication/7.png "Last failure message")
 
 ## Out of memory
 - Simply increase the "replication instance" size.
@@ -100,7 +102,7 @@ Nothing is ever that simple, and that applies to me as well. Here are several er
 ## Running with errors
 - If the “Status” is “Running with errors”, wait for the task to be complete at 100% before proceeding with the next step.
 
-![100% progress](/_posts/postgresql-multi-master-replication/8.png "100% progress")
+![100% progress](/images/postgresql-multi-master-replication/8.png "100% progress")
 
 - Open the task, go to the “Table Statistics” tab.
 - If there are “Table Errors” in the “Load State” column, stop the migration task.
@@ -109,7 +111,7 @@ Nothing is ever that simple, and that applies to me as well. Here are several er
 - Go to the “Table Statistics” tab again, and select the tables with errors.
 - Click “Reload Table Data”.
 
-![Table Data”](/_posts/postgresql-multi-master-replication/9.png "Table Data”")
+![Table Data”](/images/postgresql-multi-master-replication/9.png "Table Data”")
 
 - Hopefully, the table loads properly.
 - Stop the task, modify it and change it back to “Full LOB Mode”.
