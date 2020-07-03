@@ -24,6 +24,8 @@ paginate:         5
 
 disqus:
   shortname: joelngwt
+github: joelngwt
+linkedin: ngjoel
 
 plugins:
   - jekyll-feed
