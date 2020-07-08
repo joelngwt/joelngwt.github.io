@@ -27,7 +27,7 @@ What does this mean? It means we can set up a second database, upgrade it to the
   - `wal_sender_timeout` to `0`
 - These values do not seem to affect ordinary usage, so it's okay to leave it like this.
 - Modify your database and apply this parameter group to it.
-- *You will need to restart your database for the changes to take effect. This is the one and only downtime. It should not take more than 3 minutes.*
+- *You will need to restart your database for the changes to take effect. This is the one and only downtime. It should not take more than 1 minute.*
 
 ![Parameter Groups](/images/postgresql-multi-master-replication/1.png "Parameter Groups")
 
