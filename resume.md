@@ -108,6 +108,11 @@ as well as reviewing their pull requests.
 
 ---
 
+## Publications
+- Anand Bhojan, Siang Ping Ng, Joel Ng, Wei Tsang Ooi, CloudyGame: Enabling cloud gaming on the edge with dynamic asset streaming and shared game instances, Multimedia Tools and Applications, 27 August 2020 [[DOI]](https://doi.org/10.1007/s11042-020-09612-z)
+
+---
+
 ## Languages
 - English: Advanced
 - Chinese: Intermediate
