@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A Quick Crash Course for Kubernetes on EKS
+title: A Quick Crash Course for Setting Up Kubernetes on EKS
 tags:
   - kubernetes
   - eks
@@ -104,7 +104,7 @@ data:
         - system:masters
 ```
 
-Save the close the file.
+Save and close the file. Then run the following command:
 
 ```bash
 # This USER is the IAM username of the person who wants to perform kubectl commands
@@ -341,6 +341,57 @@ spec:
             Name: some-name
           restartPolicy: OnFailure
 
+```
+
+## Other Tricks
+### Edit an existing resource
+```bash
+kubectl edit resource/resource_name
+```
+
+Example:
+```bash
+kubectl edit deployments/my-deployment
+```
+
+### Run shell in a container
+```bash
+kubectl exec -it pod_name -- /bin/bash
+```
+
+If you have multiple containers on a pod:
+```bash
+kubectl exec -it pod_name -c container_name /bin/bash
+```
+
+### View Logs of a Pod
+```bash
+kubectl logs pod_name
+
+# If you have multiple containers in a pod
+kubectl logs pod_name container_name
+```
+
+### View Your Rollout History
+This will only record `kubectl set image` changes, unless you add the `--record=true` flag during `kubectl create`
+
+```bash
+kubectl rollout history deployment/my-deployment
+```
+
+### Rollback to a previous deployment
+```bash
+kubectl rollout undo deployment/my-deployment
+kubectl rollout undo deployment/my-deployment --to-revision=xx
+```
+
+### Restart a resource
+Sometimes, you just need to restart something, and this is how to do it. It will be usually used to restart a deployment, which will restart the pods. This is a rolling restart, so no worries about downtime.
+
+Sometimes, you will need to do this to refresh the configuration files like the configmap.
+
+```bash
+kubectl rollout restart deployment my-deployment
 ```
 
 ## That's It!
