@@ -5,6 +5,7 @@ tags:
   - kubernetes
   - eks
   - aws
+  - kubectl
 ---
 
 ## The Story
@@ -113,7 +114,9 @@ kubectl create clusterrolebinding ops-user-cluster-admin-binding --clusterrole=c
 ```
 
 ## kubectl Crash Course
-Generally, it's good practice to separate your environments or applications by [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
+kubectl is something you'll be using a lot of. It lets you manage all the resources in your cluster.
+
+First, configure your kubectl context. Generally, it's good practice to separate your environments or applications by [namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/), so just do it.
 
 `kubectl config set-context --current --namespace=example-development`
 
@@ -340,8 +343,40 @@ spec:
           nodeSelector:
             Name: some-name
           restartPolicy: OnFailure
-
 ```
+
+## Advanced Topics
+### Inter-service Communication
+If you're setting up microservices, these services will need to talk to one another. The easiest way to hack through this problem is to make your service publicly accessible and then call its public DNS endpoint. But it doesn't make sense for pods in the same cluster to communicate over the internet.
+
+Instead, you can call the DNS names that are automatically generated when a service is created. If you have created a LoadBalancer, NodePort, or ClusterIP, you have a service.
+
+The syntax of the DNS name is as follows:
+
+```bash
+service-name.namespace-name.svc.cluster.local
+```
+
+So, to do a HTTP GET request to another pod, you just need to do something like this:
+
+```go
+// This is assuming you exposed port 8080
+resp, err := http.Get("http://my-service.my-namespace.svc.cluster.local:8080/")
+
+// In my tests, this also worked. But putting the full address would be less error prone.
+resp, err := http.Get("http://my-service.my-namespace:8080/")
+```
+
+You could also use the service's IP address, which you can obtain from `kubectl get services`.
+```
+NAME         TYPE       CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+my-service   NodePort   172.20.123.123   <none>        8080:32417/TCP   13d
+```
+
+So, the URL you call would be `http://172.20.123.123:8080`. The problem with this is that the IP will change if you delete and recreate your service. With a DNS name, if you did not change the name, then your URLs will still work.
+
+### Auto Scaling
+Coming soon!
 
 ## Other Tricks
 ### Edit an existing resource
