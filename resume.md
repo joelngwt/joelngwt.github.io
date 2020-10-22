@@ -36,7 +36,7 @@ sidebar_link: true
   - Automated the entire deployment pipeline using Bash scripts and CircleCI, saving developers three hours during every biweekly release.
   - Used Terraform to set up a fully working end-to-end Kubernetes cluster and RDS on AWS, along with Bash scripts and kubectl to automate the setup and release deployments.
   - Set up CloudWatch Alarms and Simple Notification Service to keep track of abnormal utilization or response time spikes in the EC2, RDS, and Load Balancer.
-  - Upgraded the PostgreSQL database from 9.4 to 10.13.
+  - Upgraded the PostgreSQL database from version 9.4 to 10.13.
 - Management Work:
   - Managed juniors and interns by guiding them through their work,
 as well as reviewing their pull requests.

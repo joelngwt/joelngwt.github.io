@@ -147,7 +147,7 @@ kubectl apply secret generic database \
   --from-literal="DATABASE_PASSWORD=password123"
 
 # Creates a bunch of resources that is defined in a template file
-kubectl create -f ./app.json
+kubectl create -f ./app.yaml
 
 # This is how you would update an existing deployment with a new Docker image
 kubectl set image deployment/my-deployment my-container="docker-image-url"
@@ -215,6 +215,19 @@ spec:
             secretKeyRef:
               name: database
               key: DATABASE_USERNAME
+        # CPU limits for the container. The values are in CPU units. If your node has 2 vCPUs/cores,
+        # then the maximum limit you can input is 2000m or 2. Anything higher than that will
+        # result in an error.
+        # The request is the minimum amount of CPU that the container will reserve for itself.
+        # While in operation, CPU will be between request and limit.(request < x < limit)
+        # The "requests" value must be defined if you are intending to use a horizontal pod autoscaler.
+        resources:
+          limits:
+            cpu: 100m # or 0.1
+            memory: 200Mi # You can also set memory limits. Optional.
+          requests:
+            cpu: 50m # or 0.05
+            memory: 100Mi
         # config.yaml will appear in your container in the specified mountPath
         volumeMounts:
         - name: config-volume
@@ -376,7 +389,62 @@ my-service   NodePort   172.20.123.123   <none>        8080:32417/TCP   13d
 So, the URL you call would be `http://172.20.123.123:8080`. The problem with this is that the IP will change if you delete and recreate your service. With a DNS name, if you did not change the name, then your URLs will still work.
 
 ### Auto Scaling
-Coming soon!
+I will go through two types of auto scaling. Horizontal pod scaling, and horizontal node scaling.
+
+**Horizontal Node Scaling**
+
+This basically scales your node group up or down, depending on the number of pods you have. It will also rearrange the pods on your nodes so as the even them out, or reduce the number of nodes used.
+
+This is done by AWS EKS. The guide is here: [https://docs.aws.amazon.com/eks/latest/userguide/cluster-autoscaler.html](https://docs.aws.amazon.com/eks/latest/userguide/cluster-autoscaler.html)
+
+**Horizontal Pod Scaling**
+
+This adds and removes pods from your deployment depending on the metrics that you set. It works with CPU and memory metrics out of the box, and you can use other custom metrics.
+
+The guide for this is here: [https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/)
+
+The horizontal pod autoscaler requires the Kubernetes Metrics Server to be installed and running, but EKS does not have this by default. You need to install it by running the following command:
+
+```bash
+# https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
+
+# Verify that it is running by running this command:
+kubectl get deployment metrics-server -n kube-system
+```
+
+Next, you will need to set a CPU or memory request in your deployment manifest. It's seen in the Deployments section above, but here's the snippet:
+
+```bash
+# CPU limits for the container. The values are in CPU units. If your node has 2 vCPUs/cores,
+# then the maximum limit you can input is 2000m or 2. Anything higher than that will
+# result in an error.
+# The request is the minimum amount of CPU that the container will reserve for itself.
+# While in operation, CPU will be between request and limit.(request < x < limit)
+# The "requests" value must be defined if you are intending to use a horizontal pod autoscaler.
+resources:
+  limits:
+    cpu: 100m # or 0.1
+    memory: 200Mi # You can also set memory limits. Optional.
+  requests:
+    cpu: 50m # or 0.05
+    memory: 100Mi
+```
+
+Finally, create the horizontal pod autoscaler by running this command:
+
+```bash
+# The autoscaler will attempt to maintain the average CPU utilization at 50%,
+# keeping the number of pods between 1 and 5 inclusive.
+kubectl autoscale deployment my-deployment --cpu-percent=50 --min=1 --max=5
+```
+
+There are a lot of other things you can do with the autoscaler, but I'm just going to keep it basic. This should cover most people's needs anyway.
+
+Some other pieces of knowledge that would be useful to know about the autoscaler:
+- The default cooldown for scaling up is 0 seconds.
+- The default cooldown for scaling down is 300 seconds.
+- A full explanation of how the autoscaler works is here: [https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)
 
 ## Other Tricks
 ### Edit an existing resource
@@ -396,7 +464,7 @@ kubectl exec -it pod_name -- /bin/bash
 
 If you have multiple containers on a pod:
 ```bash
-kubectl exec -it pod_name -c container_name /bin/bash
+kubectl exec -it pod_name -c container_name -- /bin/bash
 ```
 
 ### View Logs of a Pod
@@ -428,6 +496,21 @@ Sometimes, you will need to do this to refresh the configuration files like the 
 ```bash
 kubectl rollout restart deployment my-deployment
 ```
+
+### Update an existing resource
+So you tweaked your deployment a little, how do you update it?
+
+You can use apply: `kubectl apply -f ./my-deployment.yaml`, but this only works for certain resources, and you might also get a warning like this (but the command will still work):
+
+> Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+
+To get around that, do this. It basically replaces the manifest (like a kubectl edit):
+
+```bash
+kubectl create -f ./my-deployment.yaml -o yaml --dry-run=client | kubectl replace -f -
+```
+
+These commands perform a rolling update. Do ensure that you have your readiness probes set, or the older pod might get terminated before your new pod is truly ready.
 
 ## That's It!
 I hope this knowledge dump helps you.
