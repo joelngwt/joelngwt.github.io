@@ -209,12 +209,12 @@ spec:
         # secretKeyRef refers to a secret. Do this to pass secrets
         # to your container without exposing your secret in your
         # code repository or in the image itself.
-        # kubectl apply secret generic database --from-literal="DATABASE_USERNAME=my-username"
-        - name: DATABASE_USERNAME
+        # kubectl apply secret generic database --from-literal="DATABASE_PASSWORD=my-password"
+        - name: DATABASE_PASSWORD
           valueFrom:
             secretKeyRef:
               name: database
-              key: DATABASE_USERNAME
+              key: DATABASE_PASSWORD
         # CPU limits for the container. The values are in CPU units. If your node has 2 vCPUs/cores,
         # then the maximum limit you can input is 2000m or 2. Anything higher than that will
         # result in an error.
@@ -243,11 +243,11 @@ spec:
         - echo
         - hello
         env:
-        - name: DATABASE_USERNAME
+        - name: DATABASE_PASSWORD
           valueFrom:
             secretKeyRef:
               name: database
-              key: DATABASE_USERNAME
+              key: DATABASE_PASSWORD
         volumeMounts:
         - name: config-volume
           mountPath: "/docker_workdir/config.yaml"
@@ -303,7 +303,7 @@ status:
 ```
 
 ### Node Port
-If you already have a load balancer, then just use this. You shouldn't be deploying a new load balancer for each port - you'll rack up a huge bill on AWS.
+If you already have a load balancer, then you might want to just use this. If you deploy a new load balancer for each port, you'll rack up a huge bill on AWS. But each app is different, so choose the type of service that fits the app.
 
 ```yaml
 apiVersion: v1
@@ -340,11 +340,11 @@ spec:
             - echo
             - hello
             env:
-            - name: DATABASE_USERNAME
+            - name: DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: database
-                  key: DATABASE_USERNAME
+                  key: DATABASE_PASSWORD
             volumeMounts:
             - name: config-volume
               mountPath: "/docker_workdir/config.yaml"
@@ -376,7 +376,7 @@ So, to do a HTTP GET request to another pod, you just need to do something like 
 // This is assuming you exposed port 8080
 resp, err := http.Get("http://my-service.my-namespace.svc.cluster.local:8080/")
 
-// In my tests, this also worked. But putting the full address would be less error prone.
+// In my tests, this also worked. But putting the full address would probably be less error prone.
 resp, err := http.Get("http://my-service.my-namespace:8080/")
 ```
 
@@ -500,9 +500,7 @@ kubectl rollout restart deployment my-deployment
 ### Update an existing resource
 So you tweaked your deployment a little, how do you update it?
 
-You can use apply: `kubectl apply -f ./my-deployment.yaml`, but this only works for certain resources, and you might also get a warning like this (but the command will still work):
-
-> Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+You can use apply: `kubectl apply -f ./my-deployment.yaml`, but this only works for certain resources.
 
 To get around that, do this. It basically replaces the manifest (like a kubectl edit):
 

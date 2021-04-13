@@ -100,12 +100,13 @@ as well as reviewing their pull requests.
 
 ## DevOps Skills
 - CircleCI: Advanced
-- Jenkins: Elementary
+- Jenkins: Intermediate
 - Bash: Intermediate
 - Docker/Kubernetes: Intermediate
 - Terraform: Elementary
 - Ansible: Elementary
-- Amazon Web Services (AWS): Intermediate
+- Amazon Web Services (AWS): Advanced
+- Datadog: Advanced
 
 ---
 
