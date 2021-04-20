@@ -19,17 +19,17 @@ With a production workload comes a new set of expectations:
 - Performance and scalability
 - Security
 
-So, I've been starting to look into ways that I can make the Kubernetes cluster more stable, and ways to prevent any sort of downtime in the production deployments.
+So, I've been starting to look into ways that I can make the Kubernetes cluster more stable, and ways to prevent any sort of downtime in the production Deployments.
 
 ## Uptime and Stability
 ### During deployment, check the status and rollback if necessary
-If you have automatic deployments set up (you should), then it's important to have a mechanism to rollback the deployment if it fails for whatever reason.
+If you have automatic deployments set up (you should), then it's important to have a mechanism to rollback the Deployment if it fails for whatever reason.
 
-Fortunately, kubectl comes with a command to check the status of your deployment. If the pods in your deployment are anything other than "Running", then the command will fail.
+Fortunately, kubectl comes with a command to check the status of your Deployment. If the pods in your Deployment are anything other than "Running", then the command will fail.
 
 Keep in mind that you will need your liveness and readiness probes set up properly for this. Kubernetes cannot tell if your application is truly working without these probes.
 
-Here's a script that checks the status of the deployment for up to 3 minutes, and if it's still not ready, the command fails. So it'll run the command to undo the most recent deployment, effectively rolling back to what it was before deployment.
+Here's a script that checks the status of the Deployment for up to 3 minutes, and if it's still not ready, the command fails. So it'll run the command to undo the most recent Deployment, effectively rolling back to what it was before deployment.
 
 ```
 if ! kubectl rollout status deployment --timeout 3m ${APP_NAME} -n ${NAMESPACE}; then
@@ -46,7 +46,7 @@ The setup for this is rather long, and so I will just refer you to the guide wri
 I recommend using the "Queue Processor" mode, as the other mode doesn't support the Kubernetes Deployment resource.
 
 ### PriorityClass
-A priority class allows you to make certain pods and deployments more important than others. By default, most of the pods in the kube-system have a higher priority already set. Check out `kubectl get priorityclass`, you'll see that your cluster has two priority classes already present.
+A priority class allows you to make certain pods and Deployments more important than others. By default, most of the pods in the kube-system have a higher priority already set. Check out `kubectl get priorityclass`, you'll see that your cluster has two priority classes already present.
 
 Now, if your cluster is shared by production and non-production workloads, you will want to set the prodution workloads to have a higher priority (but not higher than `system-cluster-critical` and `system-node-critical`). You might wonder why this is important since Kubernetes is self-healing. True, but why play with fire? Outages are often unexpected for a reason, and there's no harm being cautious.
 
@@ -61,13 +61,13 @@ kind: PriorityClass
 metadata:
   name: production
 value: 100
-# If globalDefault is true, then all future deployments will use this priority class,
-# even if not defined in the deployment manifest.
+# If globalDefault is true, then all future Deployments will use this priority class,
+# even if not defined in the Deployment manifest.
 globalDefault: false
 description: "Used for production pods."
 ```
 
-You'll need to assign your deployment to the priority class. It's a one-liner under the template spec section:
+You'll need to assign your Deployment to the priority class. It's a one-liner under the template spec section:
 ```
 apiVersion: apps/v1
 kind: Deployment
@@ -85,12 +85,10 @@ spec:
       containers:
       - stuff
       priorityClassName: production
-      volumes:
-      - stuff
 ```
 
 ### PodDisruptionBudget
-A pod disruption budget will allow you to set some sort of minimum or maximum disruption that your deployment can handle.
+A pod disruption budget will allow you to set some sort of minimum or maximum disruption that your Deployment can handle.
 
 There are two settings that you can use, and these can be set in either integers or percentages:
 - minAvailable
@@ -113,6 +111,47 @@ This means that there will always be a minimum of 1 pod running at any time.
 
 I believe `maxUnavailable` is quite self-explanatory. It's the maximum number of pods that can be unavailable at any time.
 
+### Pod Anti-Affinity
+This is a way to spread your pods out on all the available nodes, rather than having them all on a single node or two. This way, if a single node goes down for whatever reason, the Deployment will still have some pods running.
+
+This section should be under the template spec of your Deployment manifest, like so:
+```
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: your-deployment
+spec:
+  selector:
+    matchLabels:
+      app: your-deployment
+  template:
+    metadata:
+      labels:
+        app: your-deployment
+    spec:
+      affinity:
+        podAntiAffinity:
+          # The other choice is requiredDuringSchedulingIgnoredDuringExecution.
+          # Using it will prevent your pod from running on a node
+          # that already has an instance of the pod on it.
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                # This key-value is the label you've given to your Deployment resource
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - your-deployment
+              # The topology is the set of resources that the anti-affinity acts on.
+              # In this case, it compares among the hostnames (nodes).
+              topologyKey: kubernetes.io/hostname
+      containers:
+      - name: your-deployment
+        image: some-url
+```
+
 ### Integrate monitors and set up alert systems
 This doesn't come with Kubernetes natively, but there are services such as Datadog that offer this. This isn't actually Kubernetes specific, since you should be doing this no matter what kind of server it is.
 
@@ -124,7 +163,7 @@ The usual monitors should be set up:
 For Kubernetes specific monitors, there are a few pod statuses that I would like to be notified about:
 - CrashloopBackOff
 - ImagePullBackOff
-- There are less available pods than the desired
+- The number of available pods are less than the desired
 
 ## Performance and Scalability
 I've already covered a little about auto scaling both your nodes and pods in my previous Kubernetes guide. But here's a few more things you can do with it.
@@ -200,7 +239,7 @@ spec:
       targetAverageValue: 5
 ```
 
-With this, the deployment should scale up when the average queue size exceeds 5.
+With this, the Deployment should scale up when the average queue size exceeds 5.
 
 ## Security
 WIP, coming soon.
