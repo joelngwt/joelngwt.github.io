@@ -242,4 +242,83 @@ spec:
 With this, the Deployment should scale up when the average queue size exceeds 5.
 
 ## Security
-WIP, coming soon.
+### Use the simplest base images, and do not run the app as the root user
+This isn't Kubernetes specific, as it concerns your Docker images.
+
+This is much easier to do on compiled languages such as Go, and harder to do on interpreted languages like Ruby on Rails, since they require the whole source code and Rails libraries to be on the image.
+
+Here's a Go template for building a Docker image. It's a two stage Dockerfile, where the application is compiled, then in the second stage, the environment is prepared for the application to run in.
+
+```Dockerfile
+# Test and build
+FROM golang as builder
+
+ARG USER=unprivileged_user
+ARG WORK_DIR=/app
+
+# Allows cross-compilation for the compiled Go app
+# This is needed because the two stages use different OSes, since cross-compilation is required.
+# You should be able to remove the need for this if you use a golang-alpine variant (I haven't tested this).
+ENV CGO_ENABLED 0
+
+# update os and install required packages
+RUN apt-get update -qq && apt-get upgrade -y
+
+# Create directories for the user to avoid running as root
+RUN groupadd ${USER} && useradd -m -g ${USER} -l ${USER}
+RUN mkdir -p ${WORK_DIR} && chown -R ${USER}:${USER} ${WORK_DIR}
+
+# set WORKDIR and USER
+WORKDIR ${WORK_DIR}
+USER ${USER}
+
+# Copy the local package files to the container's workspace
+COPY . ${WORK_DIR}
+
+# verify the modules
+RUN go mod verify
+
+# Run tests
+RUN go test -cover ./...
+
+# Build app, produces ./app
+RUN go build -o app ./main.go
+
+# ----------------
+
+# Produce docker image to run app
+FROM alpine
+
+ARG USER=unprivileged_user
+ARG WORK_DIR=/app
+ARG PORT=8080
+
+ENV PORT=${PORT}
+
+# Create directories for the user to avoid running as root
+# https://github.com/mhart/alpine-node/issues/48
+RUN addgroup -S ${USER} && adduser -S ${USER} -G ${USER}
+
+# set WORKDIR
+WORKDIR ${WORK_DIR}
+
+# Copy the built file from the previous stage to the container's workspace
+COPY --chown=0:0 --from=builder ${WORK_DIR}/app ${WORK_DIR}
+
+# Install CA certificates to prevent x509: certificate signed by unknown authority errors
+RUN apk update && \
+    apk add ca-certificates && \
+    update-ca-certificates && \
+    rm -rf /var/cache/apk/*
+
+USER ${USER}
+EXPOSE ${PORT}
+
+CMD ["./app"]
+```
+
+If you want to know why the simplest base image should be used, take a look at the difference between these two images, it's the same code base, with the `debian:buster` image originally used:
+
+![Size and vulnerability stats](/images/getting-kubernetes-ready-for-production/1.png "Size and vulnerability stats")
+
+A smaller image size will also allow your containers to spin up more quickly, because it has to spend less time downloading the image. So, this doesn't just have a security benefit, it helps performance as well.
