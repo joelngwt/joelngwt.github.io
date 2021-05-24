@@ -28,19 +28,20 @@ sidebar_link: true
   - Implemented single session logins for the application, preventing sharing of accounts.
   - Improved the security of the application by implementing CSRF protection.
   - Upgraded Ruby on Rails from 4.2 to 5.2.
+
 - DevOps Work:
-  - Set up the entire local backend framework consisting of Ruby on Rails, Sidekiq, Redis, and PostgreSQL to use Docker containers via Docker Compose.
-  - Used CloudFormation to set up Sidekiq on Elastic Container Service (ECS).
+  - Set up the entire local backend framework consisting of Ruby on Rails, Sidekiq, Redis, and PostgreSQL to use Docker containers via Docker Compose, saving developers time and effort for setup.
   - Set up new development, staging, and production environments on AWS as when as it is needed. This usually consisted of the frontend on S3, CloudFront and Route 53, and the backend on EC2, RDS, Auto Scaling Groups, Load Balancers, and Target Groups.
-  - Used Ansible to track the configuration of EC2 instances, resulting in the documentation of infrastructure as code.
-  - Automated the entire deployment pipeline using Bash scripts and CircleCI, saving developers three hours during every biweekly release.
-  - Used Terraform to set up a fully working end-to-end Kubernetes cluster and RDS on AWS, along with Bash scripts and kubectl to automate the setup and release deployments.
   - Set up CloudWatch Alarms and Simple Notification Service to keep track of abnormal utilization or response time spikes in the EC2, RDS, and Load Balancer.
-  - Upgraded the PostgreSQL database from version 9.4 to 10.13.
+  - Used Ansible to track the configuration of EC2 instances, resulting in the documentation of infrastructure as code.
+  - Automated the entire deployment pipeline using CircleCI and Jenkins, saving developers an hour every week, as well as allowing QA Testers to get the latest updates without delay.
+  - Used Terraform and Kubernetes manifests to set up a production-ready Kubernetes cluster on AWS, supporting 18 microservices and three environments.
+  - Used Datadog to monitor the health of the Kubernetes cluster, and alerts to trigger if there are any issues.
+  - Used Datadog to instrument the Ruby on Rails and Go applications, resulting in an application that has full application performance monitoring and distributed tracing between all microservices.
+
 - Management Work:
-  - Managed juniors and interns by guiding them through their work,
-as well as reviewing their pull requests.
-  - Managed the Quality Assurance team that was established in Dec 2019.
+  - Managed juniors and interns by guiding them through their work, as well as reviewing their pull requests.
+  - Broke down product features into smaller technical tasks for junior developers to work on.
 
 **VersaFleet, Software Engineer**<br />
 *Oct 2017 – Jul 2018*
@@ -91,10 +92,11 @@ as well as reviewing their pull requests.
 
 ## Programming Skills
 - Java: Intermediate
-- JavaScript: Advanced
+- JavaScript (React): Advanced
 - Ruby on Rails: Advanced
 - C++: Elementary
 - Python: Elementary
+- Go: Elementary
 
 ---
 
@@ -102,7 +104,8 @@ as well as reviewing their pull requests.
 - CircleCI: Advanced
 - Jenkins: Intermediate
 - Bash: Intermediate
-- Docker/Kubernetes: Intermediate
+- Docker: Elementary
+- Kubernetes: Advanced
 - Terraform: Elementary
 - Ansible: Elementary
 - Amazon Web Services (AWS): Advanced
