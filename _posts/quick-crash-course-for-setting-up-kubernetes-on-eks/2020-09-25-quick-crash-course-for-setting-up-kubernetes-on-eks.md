@@ -171,7 +171,6 @@ Finally, the main part of it all.
 This is going to include volumes, secrets, configmaps, readiness & liveness probes, and init containers. Remove what you do not need.
 
 ```yaml
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -274,7 +273,6 @@ spec:
 This will create a network load balancer on AWS. You'll need to do this - how else would you expose your service to the world?
 
 ```yaml
----
 kind: Service
 apiVersion: v1
 metadata:
@@ -299,11 +297,10 @@ spec:
   externalTrafficPolicy: Cluster
 status:
   loadBalancer: {}
-
 ```
 
 ### Node Port
-If you already have a load balancer, then you might want to just use this. If you deploy a new load balancer for each port, you'll rack up a huge bill on AWS. But each app is different, so choose the type of service that fits the app.
+If you already have a load balancer, then you might want to just use this. If you deploy a new load balancer for each port, you'll rack up a huge bill on AWS. But every app has its own needs, so choose the correct type of service.
 
 ```yaml
 apiVersion: v1
@@ -317,12 +314,10 @@ spec:
   ports:
     - port: 80
       targetPort: 80
-
 ```
 
 ### Cron Job
 ```yaml
----
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
@@ -359,6 +354,74 @@ spec:
 ```
 
 ## Advanced Topics
+### Ingress
+In a microservices architecture, you want to be able to route different requests to different microservices. Most commonly, these requests are routed based on their subdomain, or a path prefix.
+
+Above, I introduced the LoadBalancer and NodePort type of service. It is possible to do the routing using these services and the API Gateway on AWS, but I do not recommend it due to certain limits posed by the API Gateway [https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html](https://docs.aws.amazon.com/apigateway/latest/developerguide/limits.html). It also introduces additional complexity to the maintenance of your infrastructure due to the higher number of parts to look after.
+
+Instead, make use of ingress controllers and ingress. There are two commonly used ingress controllers out there today. One is maintained by Nginx themselves, and the other is a fork of that, maintained by the Kubernetes team. I'll be using the one by the Kubernetes team.
+
+To set up the ingress controller, follow this guide: [https://kubernetes.github.io/ingress-nginx/deploy/#aws](https://kubernetes.github.io/ingress-nginx/deploy/#aws)
+
+From that, a load balancer will be set up on AWS, with all your nodes added to the load balancer. It is normal to have only one healthy node. This looks worrying, but it's normal. The reason why this happens is that the Nginx reverse proxy only exists on one node, so this is the only node that passes the health check. It is possible to change the configuration to run on every single node, but I haven't done that before. If you would like to explore that option, give this GitHub issue a read: [https://github.com/nginxinc/kubernetes-ingress/issues/1199](https://github.com/nginxinc/kubernetes-ingress/issues/1199)
+
+Next, you'll need to set up an Ingress resource for every single microservice you have. Here's an example manifest:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: your-subdomain.domain.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: your-nodeport-service-name
+            port:
+              number: 3000
+```
+
+This Ingress resource will route all requests that are directed to `your-subdomain.domain.com` to your Service resource named `your-nodeport-service-name`. Do ensure that your Service resource is in the same namespace as your microservice itself.
+
+Another method of directing requests would be the path based one. Here's how to do it:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minimal-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  rules:
+  - host: your-subdomain.domain.com
+    http:
+      paths:
+      - path: /serviceA(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service:
+            name: your-nodeport-service-name
+            port:
+              number: 3000
+```
+
+Two changes here - one at the `path`, and the other at `annotations`. The path definition means that any HTTP path starting with `serviceA` is routed to `your-nodeport-service-name`. The `rewrite-target` annotation basically converts the path definition into `/`. This tricks your microservice to act as though the `serviceA` path was not sent to it at all.
+
+For example, to get a list of items from your microservice, you would make a HTTP GET call to `your-subdomain.domain.com/serviceA/list`. Without the annotation, your application router would receive `serviceA/list`, which should not exist because you shouldn't be coding the prefix path into the application itself. With the annotation, your application router will receive `/list`, because `serviceA` got rewritten to `/`.
+
+Again, do ensure that your Service resource is in the same namespace as your microservice itself.
+
+With this, you'll be able to easily route the correct requests to the correct microservices.
+
 ### Inter-service Communication
 If you're setting up microservices, these services will need to talk to one another. The easiest way to hack through this problem is to make your service publicly accessible and then call its public DNS endpoint. But it doesn't make sense for pods in the same cluster to communicate over the internet.
 
