@@ -120,7 +120,11 @@ First, configure your kubectl context. Generally, it's good practice to separate
 
 `kubectl config set-context --current --namespace=example-development`
 
-Once this command is run, all future commands will operate under this namespace. To override this for a single command, add `--all-namespaces` (for listing resources) or `--namespace=my-namespace` (for creation, updates, or deletion).
+Once this command is run, all future commands will operate under this namespace. To override this for a single command, add `-A` (for listing resources) or `--namespace=my-namespace` (for creation, updates, or deletion).
+
+The command to change namespaces is rather long and hard to remember, so I'd recommend that you install this: [https://github.com/ahmetb/kubectx](https://github.com/ahmetb/kubectx)
+
+It will allow you to change namespaces easily by typing `kubens your-namespace-name`.
 
 ### kubectl Command Syntax
 kubectl commands are pretty well organized, following this structure:
