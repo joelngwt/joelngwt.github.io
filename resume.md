@@ -20,8 +20,11 @@ sidebar_link: true
 ---
 
 ## Work Experience
+**VersaFleet, Technical Lead**<br />
+*Aug 2021 – Present*
+
 **VersaFleet, Senior Software Engineer**<br />
-*Jul 2018 – Present*
+*Jul 2018 – Jul 2021*
 
 - Software Engineering Work:
   - Optimized some heavy backend functions, reducing the time for an API call from 30 seconds to one second.
