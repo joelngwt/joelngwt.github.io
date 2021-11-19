@@ -22,6 +22,12 @@ sidebar_link: true
 ## Work Experience
 **VersaFleet, Technical Lead**<br />
 *Aug 2021 – Present*
+- Improved the quality of the product, resulting in a 20% reduction of errors reported on Sentry.
+- Improved the performance of the product, resulting in a 70% reduction of I/O per second for the database.
+- Worked with the product team to prioritize and unblock any tech related issues they might have.
+- Designed a new microservice utilizing Kubernetes and MongoDB to help lower the costs of the Google Geocoding API.
+- Designed and set up a load testing environment using Locust to ensure that product updates have no performance issues.
+- Broke down product features into smaller technical tasks for junior developers to work on.
 
 **VersaFleet, Senior Software Engineer**<br />
 *Jul 2018 – Jul 2021*
@@ -35,15 +41,15 @@ sidebar_link: true
 - DevOps Work:
   - Set up the entire local backend framework consisting of Ruby on Rails, Sidekiq, Redis, and PostgreSQL to use Docker containers via Docker Compose, saving developers time and effort for setup.
   - Set up new development, staging, and production environments on AWS as when as it is needed. This usually consisted of the frontend on S3, CloudFront and Route 53, and the backend on EC2, RDS, Auto Scaling Groups, Load Balancers, and Target Groups.
-  - Set up CloudWatch Alarms and Simple Notification Service to keep track of abnormal utilization or response time spikes in the EC2, RDS, and Load Balancer.
   - Used Ansible to track the configuration of EC2 instances, resulting in the documentation of infrastructure as code.
   - Automated the entire deployment pipeline using CircleCI and Jenkins, saving developers an hour every week, as well as allowing QA Testers to get the latest updates without delay.
-  - Used Terraform and Kubernetes manifests to set up a production-ready Kubernetes cluster on AWS, supporting 18 microservices and three environments.
-  - Used Datadog to monitor the health of the Kubernetes cluster, and alerts to trigger if there are any issues.
+  - Used Terraform and Kubernetes manifests to set up a production-ready Kubernetes cluster on AWS, supporting 18 microservices duplicated across three separate environments.
+  - Set up CloudWatch Alarms and Simple Notification Service to keep track of abnormal utilization or response time spikes in the EC2, RDS, and Load Balancer.
+  - Set up Datadog monitors and alerts for the health of the Kubernetes cluster.
   - Used Datadog to instrument the Ruby on Rails and Go applications, resulting in an application that has full application performance monitoring and distributed tracing between all microservices.
 
 - Management Work:
-  - Managed juniors and interns by guiding them through their work, as well as reviewing their pull requests.
+  - Managed and guided juniors through their work, as well as reviewing their pull requests.
   - Broke down product features into smaller technical tasks for junior developers to work on.
 
 **VersaFleet, Software Engineer**<br />
@@ -51,9 +57,9 @@ sidebar_link: true
 
 - Built over 10 new frontend features for the web application using React (frontend) and Ruby on Rails (backend).
 - Added over 100 backend tests using RSpec.
-- Maintained and developed iOS and Android applications using React Native.
+- Maintained and developed iOS and Android applications using React Native (Expo).
 - Set up Amazon Web Service’s Lambda for integration between the customer’s and VersaFleet’s server.
-- Managed juniors and interns by guiding them through their work, as well as reviewing their pull requests.
+- Managed and guided juniors through their work, as well as reviewing their pull requests.
 
 **National University of Singapore, Research Assistant**<br />
 *Sep 2016 – Sep 2017*
@@ -105,7 +111,7 @@ sidebar_link: true
 
 ## DevOps Skills
 - CircleCI: Advanced
-- Jenkins: Intermediate
+- Jenkins: Elementary
 - Bash: Intermediate
 - Docker: Elementary
 - Kubernetes: Advanced
