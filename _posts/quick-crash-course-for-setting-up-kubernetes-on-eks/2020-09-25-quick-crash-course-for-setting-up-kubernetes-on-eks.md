@@ -474,7 +474,7 @@ The horizontal pod autoscaler requires the Kubernetes Metrics Server to be insta
 
 ```bash
 # https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html
-kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 
 # Verify that it is running by running this command:
 kubectl get deployment metrics-server -n kube-system
