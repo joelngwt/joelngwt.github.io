@@ -27,6 +27,7 @@ sidebar_link: true
 - Worked with the product team to prioritize and unblock any tech related issues they might have.
 - Designed and implemented a new microservice utilizing Go, Kubernetes, and MongoDB to help lower the costs of the Google Geocoding API by approximately 60%.
 - Designed and set up a load testing environment using Locust to ensure that product updates have no performance issues.
+- Improved the annual uptime of the product by 0.15%.
 - Broke down product features into smaller technical tasks for junior developers to work on.
 
 **VersaFleet, Senior Software Engineer**<br />
