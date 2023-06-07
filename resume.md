@@ -25,9 +25,10 @@ sidebar_link: true
 - Improved the quality of the product, resulting in a 64% reduction of errors reported per month on Sentry.
 - Improved the performance of the product, resulting in a 70% reduction of I/O per second on the database.
 - Worked with the product team to prioritize and unblock any tech related issues they might have.
-- Designed and implemented a new microservice utilizing Go, Kubernetes, and MongoDB to help lower the costs of the Google Geocoding API by approximately 60%.
+- Designed and implemented a new microservice utilizing Go, Kubernetes, and MongoDB to help lower the costs of the Google Geocoding API by approximately 93%.
 - Designed and set up a load testing environment using Locust to ensure that product updates have no performance issues.
 - Improved the annual uptime of the product by 0.15%.
+- Maintained a constant AWS cloud bill, despite the number of API calls increasing by 37% across three years.
 - Broke down product features into smaller technical tasks for junior developers to work on.
 
 **VersaFleet, Senior Software Engineer**<br />
