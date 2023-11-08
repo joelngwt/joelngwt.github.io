@@ -31,6 +31,7 @@ I will be updating this list with new resources and goodies as time goes by.
 - [Safer database migrations (this is a Rails gem, but even if you don't use Rails, it's good to read to learn more about databases)](https://github.com/ankane/strong_migrations)
 - [Golang by example](https://golangbyexample.com/)
 - [JWT Tokens](https://hasura.io/blog/best-practices-of-using-jwt-with-graphql/)
+- [Identifying N+1 queries (another Rails gem)](https://github.com/flyerhzm/bullet)
 
 ### DevOps
 - [CloudSavvy IT](https://www.cloudsavvyit.com/)
