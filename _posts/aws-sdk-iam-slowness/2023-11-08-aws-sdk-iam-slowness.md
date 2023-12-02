@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Mysteriously Slow APIs? It Might Not Be Your Code
+title: AWS EC2 IAM Roles Can Severely Affect Performance
 tags:
   - rails
   - aws
