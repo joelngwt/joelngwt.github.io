@@ -22,33 +22,32 @@ sidebar_link: true
 ## Work Experience
 **VersaFleet, Technical Lead**<br />
 *Aug 2021 – Present*
-- Improved the quality of the product, resulting in a 64% reduction of errors reported per month on Sentry.
-- Improved the performance of the product, resulting in a 70% reduction of I/O per second on the database.
-- Worked with the product team to prioritize and unblock any tech related issues they might have.
+- Enhanced product quality, reducing errors by 64% monthly on Sentry.
+- Enhanced product performance, reducing database I/O per second by 70%.
 - Designed and implemented a new microservice utilizing Go, Kubernetes, and MongoDB to help lower the costs of the Google Geocoding API by approximately 93%.
-- Designed and set up a load testing environment using Locust to ensure that product updates have no performance issues.
+- Designed and set up a load testing environment using Locust to ensure that product releases have no performance issues.
 - Improved the annual uptime of the product by 0.16% to reach 100%.
-- Maintained a constant AWS cloud bill, despite the number of API calls increasing by 37% across three years.
+- Kept AWS costs steady despite a 37% increase in API calls over three years.
+- Collaborated with the product team to assess the technical feasibility of future product designs and provided implementation estimates.
 - Broke down product features into smaller technical tasks for junior developers to work on.
 
 **VersaFleet, Senior Software Engineer**<br />
 *Jul 2018 – Jul 2021*
 
 - Software Engineering Work:
-  - Optimized some heavy backend functions, reducing the time for an API call from 30 seconds to one second.
+  - Optimized some heavy backend functions, reducing API call time from 30 seconds to 1 second.
   - Implemented single session logins for the application, preventing sharing of accounts.
   - Improved the security of the application by implementing CSRF protection.
   - Upgraded Ruby on Rails from 4.2 to 5.2.
 
 - DevOps Work:
-  - Set up the entire local backend framework consisting of Ruby on Rails, Sidekiq, Redis, and PostgreSQL to use Docker containers via Docker Compose, saving developers time and effort for setup.
-  - Set up new development, staging, and production environments on AWS as when as it is needed. This usually consisted of the frontend on S3, CloudFront and Route 53, and the backend on EC2, RDS, Auto Scaling Groups, Load Balancers, and Target Groups.
-  - Used Ansible to track the configuration of EC2 instances, resulting in the documentation of infrastructure as code.
-  - Automated the entire deployment pipeline using CircleCI and Jenkins, saving developers an hour every week, as well as allowing QA Testers to get the latest updates without delay.
-  - Used Terraform and Kubernetes manifests to set up a production-ready Kubernetes cluster on AWS, supporting 18 microservices duplicated across three separate environments.
+  - Set up the local development environment using Docker Compose for Ruby on Rails, Sidekiq, Redis, and PostgreSQL, streamlining setup for developers.
+  - Set up new environments on AWS, with the frontend on S3, CloudFront, and Route 53, and the backend on EC2, RDS, Auto Scaling Groups, and Load Balancers.
+  - Documented EC2 instance configurations using Ansible.
+  - Automated deployment using CircleCI and Jenkins, saving developers an hour every week, as well as allowing QA Testers to get the latest updates without delay.
+  - Deployed a Kubernetes cluster on AWS using Terraform and Kubernetes manifests, supporting 18 microservices across three environments.
   - Set up CloudWatch Alarms and Simple Notification Service to keep track of abnormal utilization or response time spikes in the EC2, RDS, and Load Balancer.
-  - Set up Datadog monitors and alerts for the health of the Kubernetes cluster.
-  - Used Datadog to instrument the Ruby on Rails and Go applications, resulting in an application that has full application performance monitoring and distributed tracing between all microservices.
+  - Monitored Kubernetes health using Datadog, and instrumented applications for performance monitoring and distributed tracing.
 
 - Management Work:
   - Managed and guided juniors through their work, as well as reviewing their pull requests.
