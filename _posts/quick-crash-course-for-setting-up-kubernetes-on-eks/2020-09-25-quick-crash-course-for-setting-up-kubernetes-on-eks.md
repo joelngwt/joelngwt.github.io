@@ -97,12 +97,19 @@ The resulting file should look something like this:
 apiVersion: v1
 data:
   mapRoles: |
-    - stuff
+    - ...stuff...
   mapUsers: |
     - userarn: arn:aws:iam::${AWS_ACCOUNT_NUMBER}:user/${USER}
       username: ${USER}
       groups:
         - system:masters
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2020-07-14T03:30:18Z"
+  name: aws-auth
+  namespace: kube-system
+  resourceVersion: "123456789"
+  uid: 12345678-1234-1234-1234-123456789012
 ```
 
 Save and close the file. Then run the following command:

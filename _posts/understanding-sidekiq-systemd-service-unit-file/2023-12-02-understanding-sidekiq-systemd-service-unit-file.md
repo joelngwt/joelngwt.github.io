@@ -28,7 +28,7 @@ At its core, the service file is a definition of three things:
 - When to run it
 
 This translates to the following file:
-```
+```ini
 [Unit]
 Description=your-service-name
 
@@ -74,7 +74,7 @@ Without this dependency, your service will not start automatically, even if it's
 ### Sidekiq's Service Unit File
 Sidekiq provides a service unit file [here](https://github.com/sidekiq/sidekiq/blob/main/examples/systemd/sidekiq.service), but I will copy it here for reference (with some comments removed):
 
-```
+```ini
 [Unit]
 Description=sidekiq
 # start us only once the network and logging subsystems are available,

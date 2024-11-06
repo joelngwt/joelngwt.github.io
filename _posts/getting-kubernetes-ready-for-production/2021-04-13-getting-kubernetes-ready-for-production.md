@@ -31,7 +31,7 @@ Keep in mind that you will need your liveness and readiness probes set up proper
 
 Here's a script that checks the status of the Deployment for up to 3 minutes, and if it's still not ready, the command fails. So it'll run the command to undo the most recent Deployment, effectively rolling back to what it was before deployment.
 
-```
+```bash
 if ! kubectl rollout status deployment --timeout 3m ${APP_NAME} -n ${NAMESPACE}; then
   kubectl rollout undo deployment ${APP_NAME} -n ${NAMESPACE}
   exit 1
@@ -55,7 +55,7 @@ Here's one scenario where your production pods might go down. Imagine you're usi
 But if you had put your production pods on a higher priority class, Kubernetes would have kicked out the less important pods to make room for your production pods. It's faster to spin up new pods on existing nodes compared to spinning up new nodes entirely, so if there's downtime (if there even is one), it's as short as possible.
 
 Here's the manifest to create a PriorityClass:
-```
+```yaml
 apiVersion: scheduling.k8s.io/v1
 kind: PriorityClass
 metadata:
@@ -68,7 +68,7 @@ description: "Used for production pods."
 ```
 
 You'll need to assign your Deployment to the priority class. It's a one-liner under the template spec section:
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -95,7 +95,7 @@ There are two settings that you can use, and these can be set in either integers
 - maxUnavailable
 
 Here's the manifest to set up a pod disruption budget:
-```
+```yaml
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
 metadata:
@@ -115,7 +115,7 @@ I believe `maxUnavailable` is quite self-explanatory. It's the maximum number of
 This is a way to spread your pods out on all the available nodes, rather than having them all on a single node or two. This way, if a single node goes down for whatever reason, the Deployment will still have some pods running.
 
 This section should be under the template spec of your Deployment manifest, like so:
-```
+```yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -189,7 +189,7 @@ Your nodes will require the `cloudwatch:GetMetricData` IAM permission. I won't c
 
 Next, you'll need to deploy an ExternalMetric resource. This has to be done in every namespace that requires it.
 
-```
+```yaml
 apiVersion: metrics.aws/v1alpha1
 kind: ExternalMetric
 metadata:
@@ -219,7 +219,7 @@ spec:
 
 Then in your horizontal pod autoscaler, reference the ExternalMetric like this:
 
-```
+```yaml
 kind: HorizontalPodAutoscaler
 apiVersion: autoscaling/v2beta1
 metadata:
@@ -322,3 +322,82 @@ If you want to know why the simplest base image should be used, take a look at t
 ![Size and vulnerability stats](/images/getting-kubernetes-ready-for-production/1.png "Size and vulnerability stats")
 
 A smaller image size will also allow your containers to spin up more quickly, because it has to spend less time downloading the image. So, this doesn't just have a security benefit, it helps performance as well.
+
+### Role-Based Access Control (RBAC)
+This one is more for your organization's access control with regards to your employees. Kubernetes, being an orchestration tool, will eventually result in multiple applications deployed onto a single cluster. So, you might want to allow a user to access certain applications, or to allow them to perform certain actions only. This is where roles, role bindings, cluster roles, and cluster role bindings come into play.
+
+There are two concepts to understand here: the role itself, and the role binding. Roles define the resources and actions that are allowed. Role bindings would be where you assign users to take on the defined role. Let's hop into an example:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: my-application
+  name: test-role
+rules:
+# You can find out the apiGroup of a resource by looking at the `apiVersion` of the manifest.
+# For example, a "deployment" would have `apiVersion: apps/v1`, meaning its apiGroup would be "apps".
+# You could also run `kubectl api-resources` to check this.
+- apiGroups: ["", "apps"]
+  resources: ["pods", "jobs", "deployments", "configmaps", "secrets", "events"]
+  verbs: ["get", "list", "watch", "create", "update", "delete", "patch"]
+- apiGroups: ["", "batch"]
+  resources: ["cronjobs"]
+  verbs: ["*"] # allows all actions on cronjobs
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: test-rolebinding
+  namespace: my-application
+subjects:
+- kind: User
+  name: john.doe
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: test-role
+  apiGroup: rbac.authorization.k8s.io
+```
+
+If you're familiar with Kubernetes manifests, I think it should be quite easy to understand. The Role is a list of the actions that are allowed to be taken. There is no denying or excluding actions here, so you have to work around it.
+
+After defining the Role, create a RoleBinding, add your user under `subjects`, and reference the defined Role under `roleRef`. The user's name should be their username on AWS, which should also be present in `kubectl edit -n kube-system configmap/aws-auth`. They should be added to `aws-auth` under the `mapUsers` array, like this:
+```
+  ...
+  mapUsers: |
+    - userarn: arn:aws:iam::${aws-account-number}:user/john.doe
+      username: john.doe
+  ...
+```
+
+ClusterRole and ClusterRoleBinding are pretty much the same thing as Role and RoleBinding, just that they are not confined to a specific namespace. The permissions defined in the ClusterRole would allow the user to perform those actions throughout the whole cluster.
+
+There are some exceptions though - not everything can be put into Role. For example, the ability to act on the Namespace resource will have to be defined using ClusterRole and ClusterRoleBinding. Here's an example:
+
+```yaml
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: namespace-viewer
+rules:
+- apiGroups: [""]
+  resources: ["namespaces"]
+  verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: namespace-viewer-binding
+subjects:
+- kind: User
+  name: john.doe
+  apiGroup: rbac.authorization.k8s.io
+- kind: User
+  name: batman
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: namespace-viewer
+  apiGroup: rbac.authorization.k8s.io
+```
