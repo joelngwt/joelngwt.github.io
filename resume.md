@@ -28,6 +28,7 @@ sidebar_link: true
 - Designed and set up a load testing environment using Locust to ensure that product releases have no performance issues.
 - Improved the annual uptime of the product by 0.16% to reach 100%.
 - Kept AWS costs steady despite a 37% increase in API calls over three years.
+- Secured critical server infrastructure and architecture, directly contributing to successful ISO 27001 certification.
 - Collaborated with the product team to assess the technical feasibility of future product designs and provided implementation estimates.
 - Broke down product features into smaller technical tasks for junior developers to work on.
 
