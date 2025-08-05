@@ -11,7 +11,7 @@ Note: The year I made the app is shown.
 This is a native Android app for converting the time between PST, PDT, EDT, EST, CET, CEST, and GMT+8.
 
 GitHub repository [here](https://github.com/joelngwt/Time-Converter).<br />
-Download the .apk file for Android [here](https://www.dropbox.com/s/dsdsvomdstyj6du/Time%20Converter.apk?dl=0).
+Download the .apk file for Android [here](https://github.com/joelngwt/Time-Converter/releases/download/1.0.0/Time.Converter.apk).
 
 ### (2016) Auto Collect Neopets Loot
 This userscript automatically goes through the various places in Neopets that you can visit daily for free loot.
