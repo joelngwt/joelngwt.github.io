@@ -18,7 +18,7 @@ Game download for Windows [here](https://github.com/joelngwt/stoic-gasa/releases
 ### (2014) Spirit Sight
 A product of a one-week game jam made during SUTD’s Game Innovation Programme. Made using Unity 4.
 
-### (2014) [RocketBlade](http://gamelab.dorienherremans.com/rocketblade)
+### (2014) RocketBlade
 My group’s main product of SUTD’s Game Innovation Programme. RocketBlade is a 3D hack and slash mobile game designed to explore the full potential of touchscreen devices to bring a Dynasty Warriors-like experience to the mobile platform.
 
 ### (2014) [Stoic Gasa 2](https://joelngwt.github.io/stoic-gasa-cs4350/)
